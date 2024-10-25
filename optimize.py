@@ -2,8 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from model import Trigram
 
-
-def optimize_a(start=0.01, end=1, interval=0.01, img_path="data/perplexity_optimization.png"):
+def optimize_a(start=0.01, end=0.2, interval=0.001, img_path="data/perplexity_optimization.png"):
     """
     This function optimizes the initial value (a) for a trigram model by calculating
     perplexity over a range of initial values and finding the minimum perplexity.
@@ -37,7 +36,7 @@ def optimize_a(start=0.01, end=1, interval=0.01, img_path="data/perplexity_optim
 
     # Mark the minimum value and location on the graph
     plt.scatter(min_x, min_y, color='red', label='Min value')
-    plt.text(min_x, min_y, f'Min: ({min_x:.2f}, {min_y:.2f})',
+    plt.text(min_x, min_y, f'Min: ({min_x:.4f}, {min_y:.4f})',
              fontsize=10, ha='right', color='red')
     plt.legend()
     plt.title('Perplexity - a')

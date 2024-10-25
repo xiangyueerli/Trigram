@@ -1,6 +1,5 @@
 import random
 
-
 def maximum_likelihood_gen(trigram_probs):
     """
     Choose the next character based on the highest trigram probability.
@@ -37,7 +36,7 @@ def weighted_random_gen(trigram_probs):
     return chosen_trigram[-1]
 
 
-def top_k_gen(trigram_probs, k=8):
+def top_k_gen(trigram_probs, k):
     """
     Get the trigram whose probability is in the top-k using the top-k sampling method.
 
@@ -59,7 +58,7 @@ def top_k_gen(trigram_probs, k=8):
     return chosen_trigram[-1:]
 
 
-def top_p_gen(trigram_probs, p=0.05):
+def top_p_gen(trigram_probs, p):
     """
     Get the trigram whose probability is greater than or equal to p using the top-p sampling method.
 

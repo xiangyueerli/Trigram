@@ -1,5 +1,5 @@
+import random
 import re
-
 
 def preprocess_line(string):
     """
@@ -15,7 +15,6 @@ def preprocess_line(string):
     string = re.sub(r'[^a-z0 .]', '', string)
     return string
 
-
 def read_lines(filename):
     """
     Read the file and return lines of file (without '\n').
@@ -23,5 +22,27 @@ def read_lines(filename):
     data = []
     with open(filename, mode='r') as f:
         for line in f:
-            data.append(line.strip())
+            data.append(line.rstrip())
     return data
+
+def divide_set(training_path, division_ratio=0.9, random_seed=42):
+    """
+    Divide the training dataset into training and validation sets based on division_ratio.
+    Randomly shuffle the lines before splitting.
+
+    Args:
+        division_ratio (float): The ratio for splitting the dataset into training and validation sets.
+        random_seed (int, optional): Random seed for reproducibility. Default is 42.
+
+    Returns:
+            train_set: str
+            val_set: str
+    """
+    random.seed(random_seed)
+    lines = read_lines(training_path)
+    random.shuffle(lines)
+
+    train_len = int(len(lines) * division_ratio)
+    train_set = lines[0:train_len]
+    val_set = lines[train_len:]
+    return train_set, val_set
