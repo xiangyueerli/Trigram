@@ -35,10 +35,3 @@ If you need to run the extra question (Q6), make sure the `data/test-port` file 
    python main.py
    ```
 4. To run the extra question, Good-Turing smoothing, or other sampling methods, uncomment the relevant code in `main.py` before running.
-
-## Appendix
-
-### `data/test-port` content:
-```
-(Include the content of `test-port` here if applicable)
-```
